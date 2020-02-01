@@ -26,18 +26,11 @@ WHERE country IN
 ALTER TABLE actor
 ADD COLUMN middle_name VARCHAR(25) AFTER first_name;
 
--- 3b. You realize that some of these actors have tremendously long middle names. 
--- Change the data type of the `middle_name` column to `blobs`.
-
 ALTER TABLE actor
 MODIFY COLUMN middle_name BLOB;
 
--- 3c. Now delete the `middle_name` column.
-
 ALTER TABLE actor
 DROP COLUMN middle_name;
-
--- * 4a. List the last names of actors, as well as how many actors have that last name.
 
 SELECT last_name, COUNT(*) AS 'Number of Actors' 
 FROM actor GROUP BY last_name;
